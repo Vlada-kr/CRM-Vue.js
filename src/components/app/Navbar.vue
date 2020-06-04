@@ -10,7 +10,7 @@
       <ul class="right hide-on-small-and-down">
         <li>
           <a ref="dropdown" class="dropdown-trigger black-text" href="#" data-target="dropdown">
-            USER NAME
+            {{name}}
             <i class="material-icons right">arrow_drop_down</i>
           </a>
 
@@ -40,6 +40,11 @@ export default {
     interval: null,
     dropdown: null
   }),
+  computed: {
+    name(){
+      return this.$store.getters.info.name
+    }
+  },
   methods: {
    async logout () {
       await this.$store.dispatch('logout')
